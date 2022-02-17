@@ -26,4 +26,11 @@ public class EmployeeController {
         return null;
 //        return employees.stream().filter(employee -> employee.getId() == id).findFirst().get();
     }
+
+    @PostMapping("/employee")
+    public Employee saveEmployee(@RequestBody Employee employee){
+        EmployeeService service = new EmployeeService();
+        service.addEmployee(employee);
+        return employee;
+    }
 }
